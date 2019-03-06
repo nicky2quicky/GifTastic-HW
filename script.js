@@ -21,8 +21,17 @@
   //       // Creating a class to displays the gifs
     var pRating = $("<p>").text("Rating: " + rating);
     gifDiv.append(pRating);
-    var imgURL = response.data[i].images.fixed_height.url;
-    var image = $("<img>").attr("src", imgURL);
+
+    var stillImage = response.data[i].images.fixed_height_still.url;
+    var animatedImage = response.data[i].images.fixed_height.url;
+
+    var image = $("<img>");
+    image.attr("src", still);
+    image.attr("data-still", stillImage);
+    image.attr("data-animate", animateImage);
+    image.attr("data-state", "still");
+    image.addClass("animalGifs");
+
     gifDiv.append(image);
   }
   }
