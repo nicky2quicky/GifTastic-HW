@@ -1,7 +1,7 @@
 
   // Beginning Array of Animals
 
-  var animals = ["dog", "cat", "pig", "horse", "panda", "mouse", "elephant", "shark", "squid", "whale"];
+  var animals = ["dog", "cat", "pig", "horse", "panda", "mouse", "elephant", "shark", "squid", "whale", "giraffe", "bull"];
 
   function displayGifs(){
     var animal = $(this).attr("data-name");
@@ -77,9 +77,17 @@ $("#gif-area").on("click", ".gif", function(){
           renderButtons();
       });
 
+      $(document).on("click", "#clear-button", function(event){
+        event.preventDefault();
+        $("#gif-area").empty();
+        console.log("click");
+      })
+
       $(document).on("click", ".animal-button", displayGifs);
 
       renderButtons();
+
+
   //       });
   
   //     });
