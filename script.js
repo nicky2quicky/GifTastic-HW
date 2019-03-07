@@ -20,7 +20,7 @@
     var gifDiv = $("#gif-area");
   //       // Creating a class to displays the gifs
     var pRating = $("<p>").text("Rating: " + rating);
-    gifDiv.append(pRating);
+    gifDiv.prepend(pRating);
 
     var stillImage = response.data[i].images.fixed_height_still.url;
     var animatedImage = response.data[i].images.fixed_height.url;
@@ -29,14 +29,29 @@
     image.attr("data-still", stillImage);
     image.attr("data-animate", animatedImage);
     image.attr("data-state", "still");
+    image.addClass("gif");
 
-    gifDiv.append(image);
+    
+    gifDiv.prepend(image);
     console.log(response);
   }
   }
 });
 }
 
+$("#gif-area").on("click", ".gif", function(){
+  console.log("$$$***************", $(this)[0]);
+  if($(this)[0].dataset.state === "still"){
+    $(this).attr({
+      "src": $(this)[0].dataset.animate,
+      "data-state": "animate"
+    })
+  }else{
+    $(this).attr({
+      "src": $(this)[0].dataset.still,
+      "data-state": "still"
+  })}
+});
   
 
   function renderButtons() {
@@ -58,6 +73,7 @@
           event.preventDefault();
           var animal = $("#user-input").val().trim();
           animals.push(animal);
+          $("#user-input").val("");
           renderButtons();
       });
 
