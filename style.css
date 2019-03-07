@@ -2,8 +2,21 @@
     grid-auto-flow: inherit;
 }
 
+body{
+    background-color: rgb(155, 198, 240);
+}
+
+h1{
+    text-align: center;
+    font-weight: bolder;
+    font-size: 50px;
+    color: red;
+
+}
+
 .animal-button{
     color: orange;
+    font-size: 18px;
     background: black;
     padding: 5px 10px 5px 10px;
     margin: 5px;
@@ -12,4 +25,6 @@
 #gifarea{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr
+
+    /* Playing around with CSS to try and get the images showing up not stacked in a row like this */
 }
