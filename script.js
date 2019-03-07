@@ -22,9 +22,8 @@
     var pRating = $("<p>").text("Rating: " + rating);
     gifDiv.append(pRating);
 
-    var stillImage = response.data[i].images.fixed_height_still;
+    var stillImage = response.data[i].images.fixed_height_still.url;
     var animatedImage = response.data[i].images.fixed_height.url;
-
     var image = $("<img>");
     image.attr("src", stillImage);
     image.attr("data-still", stillImage);
